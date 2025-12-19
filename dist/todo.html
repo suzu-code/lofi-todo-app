@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>TODO</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        font-family: sans-serif;
+      }
+
+      #bg-video {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        object-fit: cover;
+        z-index: -1;
+      }
+
+      #header {
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        z-index: 10;
+      }
+
+      #logged-in-email {
+        color: white;
+        font-weight: bold;
+        font-size: 1rem;
+        text-shadow: 0 0 4px rgba(0, 0, 0, 1);
+      }
+
+      #signout-btn {
+        background-color: rgba(255, 255, 255, 0.95);
+        color: #5e5e5e;
+        border: 1px solid #ccc;
+        padding: 6px 12px;
+        border-radius: 6px;
+        cursor: pointer;
+        font-size: 0.9rem;
+      }
+
+      #signout-btn:hover {
+        background-color: rgba(255, 255, 255, 0.8);
+        color: black;
+        border-color: black;
+      }
+
+      #todo-container {
+        position: absolute;
+        top: 80px;
+        left: 20px;
+        background: rgba(255, 255, 255, 0.85);
+        backdrop-filter: blur(6px);
+        width: 320px;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+        z-index: 5;
+      }
+
+      #todo-form {
+        display: flex;
+        gap: 10px;
+      }
+
+      #todo-form input[name="text"] {
+        flex: 1;
+        padding: 8px;
+        border-radius: 6px;
+        border: 1px solid lightgray;
+      }
+
+      #todo-form .add-btn {
+        padding: 0.6rem 1rem;
+        background-color: cornflowerblue;
+        color: white;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+      }
+
+      #filter-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        margin: 10px 0 15px;
+      }
+
+      #filter-buttons button {
+        background: none;
+        border: none;
+        color: #333;
+        cursor: pointer;
+        font-size: 0.9rem;
+      }
+
+      #filter-buttons button.active {
+        font-weight: bold;
+        color: black;
+      }
+
+      #todo-list {
+        margin-top: 10px;
+      }
+
+      .todo-item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 6px 0;
+        border-bottom: 1px solid #ddd;
+      }
+
+      .todo-item input[type="text"] {
+        flex: 1;
+        padding: 5px;
+        border: none;
+        border-bottom: 1px solid lightgray;
+      }
+
+      .todo-item.completed input[type="text"] {
+        text-decoration: line-through;
+        opacity: 0.6;
+      }
+
+      .todo-item button {
+        background: none;
+        border: none;
+        color: red;
+        font-size: 1.2rem;
+        cursor: pointer;
+      }
+
+      #delete-completed-btn {
+        margin-top: 10px;
+        width: 100%;
+        padding: 6px 10px;
+        background-color: #ff7676;
+        color: white;
+        border-radius: 6px;
+        border: none;
+        cursor: pointer;
+      }
+
+      #todo-count {
+        margin-top: 8px;
+        text-align: right;
+        font-size: 0.85rem;
+      }
+
+      .hidden {
+        display: none !important;
+      }
+
+      #clock {
+        position: fixed;
+        right: 20px;
+        bottom: 20px;
+        color: white;
+        font-size: 40px;
+        font-weight: bold;
+        text-shadow: 0 0 6px rgba(0,0,0,1);
+        z-index: 10;
+      }
+
+
+    </style>
+  </head>
+
+  <body>
+    <video id="bg-video" autoplay muted loop playsinline>
+      <source src="Generated_Image_November_20,_2025_-_12_35PM.MP4" type="video/mp4" />
+    </video>
+
+    <div id="header" class="hidden">
+      <button id="signout-btn">サインアウト</button>
+      <div id="logged-in-email"></div>
+    </div>
+
+    <div id="todo-container" class="hidden">
+      <form id="todo-form">
+        <input name="text" placeholder="TODOを入力..." required />
+        <button class="add-btn">追加</button>
+      </form>
+
+      <div id="filter-buttons">
+        <button data-filter="all">全て</button>
+        <button data-filter="active">未完了</button>
+        <button data-filter="completed">完了</button>
+      </div>
+
+      <div id="todo-list"></div>
+
+      <button id="delete-completed-btn">完了済みを一括削除</button>
+
+      <div id="todo-count"></div>
+    </div>
+
+    <script type="module" src="user.js"></script>
+  </body>
+  <div id="clock"></div>
+
+</html>
+
