@@ -1,4 +1,4 @@
-# Lofitodoアプリ
+# Lofi-todoアプリ
 
 Firebaseを使用したシンプルなtodoアプリケーションです。
 
