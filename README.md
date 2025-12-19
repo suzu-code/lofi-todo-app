@@ -1,10 +1,14 @@
-# Lo-fi TODO App
+# Lofitodoアプリ
 
-Firebaseを使用したシンプルなTODO管理アプリケーションです。
+Firebaseを使用したシンプルなtodoアプリケーションです。
+
+
+https://github.com/user-attachments/assets/abbad84a-fe2a-4c18-8f68-2aa0e72d4cad
+
 
 ## 機能
 - Firebase Authenticationによるサインイン・サインアウト
-- Firestoreを使用したTODOデータのリアルタイム保存（追加・更新・削除）
+- Firestoreを使用したtodoデータのリアルタイム保存（追加・更新・削除）
 - 完了/未完了の状態フィルター機能
 - lofiな背景動画と時計表示
 - (lofi音楽を再生できる機能とポモドーロタイマーを実装予定)
